@@ -2,17 +2,3 @@
 .aaa{
   margin: 10prpx
 }
-<<<<<<< HEAD
-
-.bbb{
-  padding: 11rpx;
-}
-
-
-.ccc{
-  padding: 11rpx
-=======
-.bbb{
-  padding: 11rpx;
->>>>>>> zs
-}

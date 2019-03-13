@@ -1,0 +1,15 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/welcome/welcome",
+    "pages/logs/logs",
+    "pages/login/login",
+    "pages/detail/detail"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FFEC74",
+    "navigationBarTitleText": "笑哥吹",
+    "navigationBarTextStyle": "black"
+  }
+}

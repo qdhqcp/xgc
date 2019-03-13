@@ -1,0 +1,6 @@
+<!--pages/detail/detail.wxml-->
+<import src="../../utils/wxParse/wxParse.wxml"/>
+
+<scroll-view scroll-y class='dk-show' style='height:{{dkheight}}px;'>
+  <template is="wxParse" data="{{wxParseData:dkcontent.nodes}}"/>
+</scroll-view>

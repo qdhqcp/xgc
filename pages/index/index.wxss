@@ -1,0 +1,191 @@
+/**index.wxss**/
+
+
+page{
+  background-color: #F5F5F5;
+}
+
+/**顶部分类导航**/
+.nav-menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #FFEC74;
+  position: fixed;
+  top: 0rpx;
+  z-index: 99999;
+}
+.nav-user-head {
+  width: 56rpx;
+  height: 56rpx;
+  margin: 20rpx;
+  margin-left: 30rpx;
+  border-radius: 50%;
+}
+.nav-menu-item{
+  width: 110rpx;
+  font-size: 30rpx;
+  text-align: center;
+}
+
+
+/**段子条目**/
+.art-container{
+  padding-top: 96rpx;
+  height: calc(100vh - 96rpx);
+}
+.art-item{
+  background: #ffffff;
+  margin-bottom: 20rpx;
+  padding: 0rpx 40rpx;
+}
+.art-item-top{
+  height: 32rpx;
+  display: flex;
+  flex-direction: row;
+}
+.art-item-top-hot-icon{
+  width: 36rpx;
+  height: 32rpx;
+}
+.art-item-top-text{
+  font-size: 22rpx;
+  color: #999999;
+  margin-left: 16rpx;
+  margin-top: -2rpx;
+}
+.art-item-con{
+  margin-top: 16rpx;
+}
+.art-item-con-tag{
+  color: #51ADF5;
+  font-size: 30rpx;
+}
+.art-item-con-text{
+  color: #323232;
+  font-size: 30rpx;
+}
+.art-item-con-title{
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #323232;
+}
+.art-item-con-img-box{
+  margin-top: 16rpx;
+  width: 100%;
+  position: relative;
+}
+.art-item-con-img{
+  width: 100%;
+  border-radius: 12rpx;
+}
+.art-item-con-img-mark{
+  background: #000000;
+  opacity:0.4;
+  width: 90%;
+  position:absolute;
+  text-align: center;
+  padding: 10rpx  5%;
+  line-height: 36rpx;
+  left: 0;
+  right: 0;
+  bottom: 8rpx;
+  border-bottom-left-radius: 12rpx;
+  border-bottom-right-radius: 12rpx;
+}
+.art-item-con-img-mark-left{
+  text-align: left;
+}
+.art-item-con-img-mark-text{
+  color: white;
+  font-size: 26rpx;
+  word-break:break-all;
+  display: inline-block;
+}
+.art-item-con-img-mark-text-seeall{
+  color: #fff000;
+}
+.art-item-con-img-gif{
+  width: 88rpx;
+  height: 88rpx;
+  position:absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top:0;
+  margin: auto;
+}
+.art-item-bottom{
+  margin-top: 30rpx;
+  height: 40rpx;
+  padding-top: 26rpx;
+  padding-bottom: 14rpx;
+  border-top: 1rpx solid #E8E8E8;
+}
+.no-top-line{
+  margin-top: 0rpx;
+  border-top: 0rpx;
+}
+.art-item-bottom-icon{
+  vertical-align: middle;
+  position:absolute;
+}
+.art-item-bottom-text{
+  font-size: 24rpx;
+  color: #848484;
+  position:absolute;
+}
+.art-item-bottom-zan-icon{
+  width: 28rpx;
+  height: 40rpx;
+  left: 40rpx;
+}
+.art-item-bottom-zan-text{
+  left: 82rpx;
+}
+.art-item-bottom-pl-icon{
+  width: 32rpx;
+  height: 32rpx;
+  left: 176rpx;
+  margin-top: 4rpx;
+}
+.art-item-bottom-pl-text{
+  left: 222rpx;
+}
+.art-item-bottom-sc-icon{
+  width: 32rpx;
+  height: 32rpx;
+  right:120rpx; 
+  margin-top: 4rpx;
+}
+.art-item-bottom-share-icon{
+  width: 28rpx;
+  height: 24rpx;
+  right:40rpx; 
+  margin-top: 8rpx;
+}
+.art-item-pls{
+  padding-bottom: 30rpx;
+}
+.art-item-pls-box{
+  background: #F7F7F7;
+  padding: 30rpx;
+  padding-bottom: 10rpx;
+}
+.art-items-pls-item{
+  font-size: 26rpx;
+  margin-bottom: 20rpx;
+}
+.art-item-pls-head{
+  width: 48rpx;
+  height: 48rpx;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+.art-item-pls-name{
+  color: #5a7cab;
+  margin-left: 16rpx;
+}
+.art-item-pls-text{
+  color: #323232;
+}

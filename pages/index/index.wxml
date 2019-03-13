@@ -1,0 +1,161 @@
+<!--index.wxml-->
+
+<!--顶部分类导航-->
+<view class='nav-menu'>
+  <image class="nav-user-head" wx:if="{{isLogin && userInfo.avatarUrl}}" src="{{userInfo.avatarUrl}}" mode="cover" ></image>
+  <image class="nav-user-head" wx:else src="../imgs/default-head.png" mode="cover" ></image>
+  <text class='nav-menu-item' bindtap="SelectMenu" data-type='tuijian'>推荐</text>
+  <text class='nav-menu-item' bindtap="SelectMenu" data-type='xiaoge'>笑哥</text>
+  <text class='nav-menu-item' bindtap="SelectMenu" data-type='xiaoyi'>小姨</text>
+  <text class='nav-menu-item' bindtap="SelectMenu" data-type='reping'>热评</text>
+  <text class='nav-menu-item' bindtap="SelectMenu" data-type='tags'>标签</text>
+  <text class='nav-menu-item' bindtap="SelectMenu" data-type='share'>分享</text>
+</view>
+
+<!--内容列表-->
+<scroll-view class='art-container' scroll-y lower-threshold="100" bindscrolltolower="LoadNextPage">
+  
+  <block wx:for="{{CurListData.items}}"  wx:for-item="item">
+    
+    <!--视频类-->
+    <view class='art-item art-video'  bindtap="GoArtDetail" wx:if="{{item.atype=='1'||item.atype=='3'}}" >
+      <view class='art-item-top' wx:if="{{item.mark=='1'}}">
+        <image class="art-item-top-hot-icon" src="../imgs/content_icon_hot2.png"></image>
+        <text class='art-item-top-text'>推荐</text>
+      </view>
+      <view class='art-item-top' wx:if="{{item.mark=='8'}}">
+        <image class="art-item-top-hot-icon" src="../imgs/content_icon_hot1.png"></image>
+        <text class='art-item-top-text'>神段子</text>
+      </view>
+      <view class='art-item-top' wx:if="{{item.mark=='9'}}">
+        <image class="art-item-top-hot-icon" src="../imgs/content_icon_hot4.png"></image>
+        <text class='art-item-top-text'>超火</text>
+      </view>
+      <view class='art-item-con'>
+        <text class='art-item-con-title' wx:if="{{item.title&&item.title.length>0}}">{{item.title}}</text>
+        <view class='art-item-con-img-box'>
+          <image class="art-item-con-img" src="{{item.imgurl}}" mode='widthFix'></image>
+          <image class="art-item-con-img-gif" src="../imgs/content_btn_playvedio.png"></image>
+        </view>
+      </view>
+      <view class='art-item-line'></view>
+      <view class='art-item-bottom no-top-line'>
+        <image class="art-item-bottom-icon art-item-bottom-zan-icon" src="../imgs/content_btn_likeed.png" wx:if="{{item.zanstatus=='1'}}"></image>
+        <image class="art-item-bottom-icon art-item-bottom-zan-icon" src="../imgs/content_btn_like.png" wx:else></image>
+        <text class='art-item-bottom-text art-item-bottom-zan-text'>{{item.zancnt}}</text>
+        <image class="art-item-bottom-icon art-item-bottom-pl-icon" src="../imgs/content_btn_commented.png" wx:if="{{item.commentstatus=='1'}}"></image>
+        <image class="art-item-bottom-icon art-item-bottom-pl-icon" src="../imgs/content_btn_comment.png" wx:else></image>
+        <text class='art-item-bottom-text art-item-bottom-pl-text'>{{item.plcnt}}</text>
+        <image class="art-item-bottom-icon art-item-bottom-sc-icon" src="../imgs/content_btn_collected.png" wx:if="{{item.collectstatus=='1'}}"></image>
+        <image class="art-item-bottom-icon art-item-bottom-sc-icon" src="../imgs/content_btn_collect.png" wx:else></image>
+        <image class="art-item-bottom-icon art-item-bottom-share-icon" src="../imgs/content_btn_share.png"></image>
+      </view>
+      <view class='art-item-pls' wx:if="{{item.hotcomment && item.hotcomment.length>0}}">
+        <view class='art-item-pls-box'>
+          <block wx:for="{{item.hotcomment}}"  wx:for-item="plitem">
+            <view class='art-items-pls-item'>
+              <image class="art-item-pls-head" src="{{plitem.HEADURL}}"></image>
+              <text class='art-item-pls-name'>{{plitem.NICKNAME}}：</text>
+              <text class='art-item-pls-text'>{{plitem.CONTENT}}</text>
+            </view>
+          </block>
+        </view>
+      </view>
+    </view>
+
+    <!--图片类-->
+    <view class='art-item art-image' wx:if="{{item.atype=='2'||item.atype=='4'||item.atype=='5'}}">
+      <view class='art-item-top' wx:if="{{item.mark=='1'}}">
+        <image class="art-item-top-hot-icon" src="../imgs/content_icon_hot2.png"></image>
+        <text class='art-item-top-text'>推荐</text>
+      </view>
+      <view class='art-item-top' wx:if="{{item.mark=='8'}}">
+        <image class="art-item-top-hot-icon" src="../imgs/content_icon_hot1.png"></image>
+        <text class='art-item-top-text'>神段子</text>
+      </view>
+      <view class='art-item-top' wx:if="{{item.mark=='9'}}">
+        <image class="art-item-top-hot-icon" src="../imgs/content_icon_hot4.png"></image>
+        <text class='art-item-top-text'>超火</text>
+      </view>
+      <view class='art-item-con'>
+        <text class='art-item-con-title' wx:if="{{item.title&&item.title.length>0}}">{{item.title}}</text>
+        <view class='art-item-con-img-box'>
+          <image class="art-item-con-img" src="{{item.imgurl}}" mode='widthFix'></image>
+          <view class='art-item-con-img-mark' wx:if="{{item.zhaiyao&&item.zhaiyao.length>0&&item.zhaiyao=='查看全文'}}"><text class='art-item-con-img-mark-text'>{{item.zhaiyao}}</text><text class='art-item-con-img-mark-text art-item-con-img-mark-text-seeall' wx:if="{{item.zhaiyao_seeall.length>0}}">{{item.zhaiyao_seeall}}</text></view>
+          <view class='art-item-con-img-mark art-item-con-img-mark-left' wx:if="{{item.zhaiyao&&item.zhaiyao.length>0&&item.zhaiyao!='查看全文'}}"><text class='art-item-con-img-mark-text'>{{item.zhaiyao}}</text><text class='art-item-con-img-mark-text art-item-con-img-mark-text-seeall' wx:if="{{item.zhaiyao_seeall.length>0}}">{{item.zhaiyao_seeall}}</text></view>
+          <image class="art-item-con-img-gif" src="../imgs/content_btn_playgif.png"  wx:if="{{item.atype=='4'}}"></image>
+        </view>
+      </view>
+      <view class='art-item-line'></view>
+      <view class='art-item-bottom no-top-line'>
+        <image class="art-item-bottom-icon art-item-bottom-zan-icon" src="../imgs/content_btn_likeed.png" wx:if="{{item.zanstatus=='1'}}"></image>
+        <image class="art-item-bottom-icon art-item-bottom-zan-icon" src="../imgs/content_btn_like.png" wx:else></image>
+        <text class='art-item-bottom-text art-item-bottom-zan-text'>{{item.zancnt}}</text>
+        <image class="art-item-bottom-icon art-item-bottom-pl-icon" src="../imgs/content_btn_commented.png" wx:if="{{item.commentstatus=='1'}}"></image>
+        <image class="art-item-bottom-icon art-item-bottom-pl-icon" src="../imgs/content_btn_comment.png" wx:else></image>
+        <text class='art-item-bottom-text art-item-bottom-pl-text'>{{item.plcnt}}</text>
+        <image class="art-item-bottom-icon art-item-bottom-sc-icon" src="../imgs/content_btn_collected.png" wx:if="{{item.collectstatus=='1'}}"></image>
+        <image class="art-item-bottom-icon art-item-bottom-sc-icon" src="../imgs/content_btn_collect.png" wx:else></image>
+        <image class="art-item-bottom-icon art-item-bottom-share-icon" src="../imgs/content_btn_share.png"></image>
+      </view>
+      <view class='art-item-pls' wx:if="{{item.hotcomment && item.hotcomment.length>0}}">
+        <view class='art-item-pls-box'>
+          <block wx:for="{{item.hotcomment}}"  wx:for-item="plitem">
+            <view class='art-items-pls-item'>
+              <image class="art-item-pls-head" src="{{plitem.HEADURL}}"></image>
+              <text class='art-item-pls-name'>{{plitem.NICKNAME}}：</text>
+              <text class='art-item-pls-text'>{{plitem.CONTENT}}</text>
+            </view>
+          </block>
+        </view>
+      </view>
+    </view>
+
+    <!--段子类-->
+    <view class='art-item art-text' wx:if="{{item.atype=='0'}}">
+      <view class='art-item-top' wx:if="{{item.mark=='1'}}">
+        <image class="art-item-top-hot-icon" src="../imgs/content_icon_hot2.png"></image>
+        <text class='art-item-top-text'>推荐</text>
+      </view>
+      <view class='art-item-top' wx:if="{{item.mark=='8'}}">
+        <image class="art-item-top-hot-icon" src="../imgs/content_icon_hot1.png"></image>
+        <text class='art-item-top-text'>神段子</text>
+      </view>
+      <view class='art-item-top' wx:if="{{item.mark=='9'}}">
+        <image class="art-item-top-hot-icon" src="../imgs/content_icon_hot4.png"></image>
+        <text class='art-item-top-text'>超火</text>
+      </view>
+      <view class='art-item-con'>
+        <text class='art-item-con-tag' wx:if="{{item.tag&&item.tag.length>0}}">{{item.tag}} </text>
+        <text class='art-item-con-text'>{{item.zhaiyao}}</text>
+      </view>
+      <view class='art-item-line'></view>
+      <view class='art-item-bottom'>
+        <image class="art-item-bottom-icon art-item-bottom-zan-icon" src="../imgs/content_btn_likeed.png" wx:if="{{item.zanstatus=='1'}}"></image>
+        <image class="art-item-bottom-icon art-item-bottom-zan-icon" src="../imgs/content_btn_like.png" wx:else></image>
+        <text class='art-item-bottom-text art-item-bottom-zan-text'>{{item.zancnt}}</text>
+        <image class="art-item-bottom-icon art-item-bottom-pl-icon" src="../imgs/content_btn_commented.png" wx:if="{{item.commentstatus=='1'}}"></image>
+        <image class="art-item-bottom-icon art-item-bottom-pl-icon" src="../imgs/content_btn_comment.png" wx:else></image>
+        <text class='art-item-bottom-text art-item-bottom-pl-text'>{{item.plcnt}}</text>
+        <image class="art-item-bottom-icon art-item-bottom-sc-icon" src="../imgs/content_btn_collected.png" wx:if="{{item.collectstatus=='1'}}"></image>
+        <image class="art-item-bottom-icon art-item-bottom-sc-icon" src="../imgs/content_btn_collect.png" wx:else></image>
+        <image class="art-item-bottom-icon art-item-bottom-share-icon" src="../imgs/content_btn_share.png"></image>
+      </view>
+      <view class='art-item-pls' wx:if="{{item.hotcomment && item.hotcomment.length>0}}">
+        <view class='art-item-pls-box'>
+          <block wx:for="{{item.hotcomment}}"  wx:for-item="plitem">
+            <view class='art-items-pls-item'>
+              <image class="art-item-pls-head" src="{{plitem.HEADURL}}"></image>
+              <text class='art-item-pls-name'>{{plitem.NICKNAME}}：</text>
+              <text class='art-item-pls-text'>{{plitem.CONTENT}}</text>
+            </view>
+          </block>
+        </view>
+      </view>
+    </view>
+
+  </block>
+
+  
+
+</scroll-view>

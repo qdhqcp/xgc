@@ -10,12 +10,10 @@
 .fref{
   
 }
-
 .cfre{
   padding: 10rpx
 }
-.ccc{
-  
-}
 
-.dddddd{}
+.test{
+  padding: 10rpx
+}

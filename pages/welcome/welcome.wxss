@@ -3,10 +3,11 @@
   margin: 10prpx
 }
 
-.ccc{
-  padding: 11rpx
-｝
 .bbb{
-    padding: 11rpx
+  padding: 11rpx;
 }
 
+
+.ccc{
+  padding: 11rpx
+}

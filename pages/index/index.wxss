@@ -191,12 +191,27 @@ page{
 }
 
 
-.timer{
-  width: 100rpx; 
-  height: 100rpx; 
-  background:#ffffff; 
+.timer-box{
+  width: 128rpx; 
+  height: 128rpx; 
   position:fixed;
-  bottom:30rpx; 
+  bottom:50rpx; 
   right:30rpx;
-  border-radius:50rpx;
+  border-radius:64rpx;
+}
+.timer-bg{
+  position: absolute;
+  width: 128rpx; 
+  height: 128rpx;  
+  top: 0;
+  left: 0;
+  border-radius:64rpx;
+}
+.timer{
+  position: absolute;
+  width: 128rpx; 
+  height: 128rpx; 
+  top: 0;
+  left: 0;
+  border-radius:64rpx;
 }

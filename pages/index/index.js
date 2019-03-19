@@ -15,7 +15,9 @@ Page({
       items: [],
       scrolly: 0,
       curpage: 1
-    }
+    },
+    timeConfigTimes:4, //每圈分几段
+    timeConfigSec:8 //每段几秒钟
   },
   onLoad: function() {
     this.setData({
@@ -24,9 +26,7 @@ Page({
 
     this.LoadNextPage();
 
-    this.draw('timerCanvas', 30, 1000, function(_pro) {
-      console.log(_pro);
-    });
+    this.ProgressStartNextSection();
 
   },
   //事件处理函数
@@ -103,8 +103,52 @@ Page({
 
   //开启下一段计时
   ProgressStartNextSection:function(){
-    console.log(timer.data.curProgress);
+    
+    
+    //正在执行动画，不处理
+    if (this.data.isAniming) {
+      return;
+    }
+
+    var perSection = 95 / this.data.timeConfigTimes;
+
+    var progress = this.data.curProgress + perSection;
+    var duration = this.data.timeConfigSec*1000;
+
+    if (progress > 95) {
+      if (this.data.curProgress < 95) {
+        progress = 95;
+      }else {
+        progress = 100;
+        duration = 5 / perSection * this.data.timeConfigSec;
+      }
+    }
+
+    if (progress > 100) {
+      progress = 100;
+    }
+
+    this.draw('timerCanvas', progress, duration, true, this.ProgressArriveAtDelegate);
+
   },
+
+  //到达指定进度代理
+  ProgressArriveAtDelegate: function(progress)
+  {
+    console.log(progress);
+      
+    if(progress== 100) {
+      this.draw('timerCanvas', 1, 10, false, this.ProgressArriveAtDelegate);
+
+      //阅读奖励
+      wx.showToast({
+        title: '发放阅读奖励',
+        icon: 'success',
+        duration: 2000
+      })
+    }
+  },
+
 
   //点击文章进入详情
   GoArtDetail: function(event) {

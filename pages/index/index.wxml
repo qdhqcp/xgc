@@ -69,4 +69,7 @@
 
 
 <!--倒计时-->
-<canvas class="timer" canvas-id="timerCanvas" id="timerCanvas"></canvas>
+<view class="timer-box">
+  <image class="timer-bg" src='../imgs/content_icon_moneyloading.png'></image>
+  <canvas class="timer" canvas-id="timerCanvas" id="timerCanvas"></canvas>
+</view>

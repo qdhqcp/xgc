@@ -98,7 +98,7 @@ Page({
   
   //列表滚动事件
   ScrollViewDidScroll:function(){
-    ProgressStartNextSection();
+    this.ProgressStartNextSection();
   },
   
   //开启下一段计时

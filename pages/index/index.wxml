@@ -15,7 +15,7 @@
 </view>
 
 <!--内容列表-->
-<scroll-view class='art-container' scroll-y lower-threshold="100" bindscrolltolower="LoadNextPage" bindscrol="ScrollViewDidScroll">
+<scroll-view class='art-container' scroll-y lower-threshold="100" bindscrolltolower="LoadNextPage" bindscroll="ScrollViewDidScroll">
 
   <block wx:for="{{CurListData.items}}" wx:for-item="item">
 

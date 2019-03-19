@@ -24,7 +24,7 @@ Page({
 
     this.LoadNextPage();
 
-    this.draw('timerCanvas', 30, 1000,function(_pro){
+    this.draw('timerCanvas', 30, 1000, function(_pro) {
       console.log(_pro);
     });
 
@@ -95,31 +95,43 @@ Page({
       }
     })
   },
-  
+
   //列表滚动事件
-  ScrollViewDidScroll:function(){
+  ScrollViewDidScroll: function() {
     this.ProgressStartNextSection();
   },
-  
+
   //开启下一段计时
-  ProgressStartNextSection:function(){
+  ProgressStartNextSection: function() {
     console.log(timer.data.curProgress);
   },
 
   //点击文章进入详情
-  GoArtDetail: function() {
-    wx.navigateTo({
-      url: '../detail/detail'
-    })
-  },
+  GoArtDetail: function(event) {
 
-  //点击进入段子详情
-  GoDuanZiDetail: function(event) {
     var index = event.currentTarget.dataset.index;
-    var duanzidata = this.data.CurListData.items[index];
-    wx.navigateTo({
-      url: '../duanzidetail/duanzidetail?index=' + index
-    })
-  }
+    var itemdata = this.data.CurListData.items[index];
+    var atype = itemdata.atype;
+    var url;
+    if ('0' == atype) {
+      //段子
+      url = '../duanzidetail/duanzidetail';
+    } else if ('5' == atype) {
+      //图文
+      url = '../tuwendetail/tuwendetail'
+    } else if ('2' == atype || '4' == atype) {
+      //图片和gif
+      url = '../picdetail/picdetail'
+    } else if ('1' == atype || '3' == atype) {
+      //视频
+      url = '../videodetail/videodetail'
+    }
+    if (url) {
+      wx.navigateTo({
+        url: url + '?index=' + index
+      })
+    }
+
+  },
 
 })

@@ -1,8 +1,9 @@
 export default{ 
   data: {
-    percentage: '', //百分比
-    animTime: '', // 动画执行时间
-    isAniming: false,//是否正在执行动画
+    percentage: '',           //百分比
+    animTime: '',             // 动画执行时间
+    curProgress: 0,           //当前进度
+    isAniming: false,         //是否正在执行动画
     animCompleteCB:undefined, //动画执行完成回调方法
   },
   options:{
@@ -39,6 +40,7 @@ export default{
       }
       return false;
     }
+    that.setData({ curProgress: start });
     that.run(start, w, h);
     setTimeout(function () {
       that.canvasTap(start, end, time, w, h);

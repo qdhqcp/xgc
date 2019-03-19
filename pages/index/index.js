@@ -95,6 +95,17 @@ Page({
       }
     })
   },
+  
+  //列表滚动事件
+  ScrollViewDidScroll:function(){
+    ProgressStartNextSection();
+  },
+  
+  //开启下一段计时
+  ProgressStartNextSection:function(){
+
+  },
+
   //点击文章进入详情
   GoArtDetail: function() {
     wx.navigateTo({

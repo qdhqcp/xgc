@@ -97,12 +97,12 @@ Page({
   },
 
   //列表滚动事件
-  ScrollViewDidScroll: function() {
+  ScrollViewDidScroll:function(){
     this.ProgressStartNextSection();
   },
 
   //开启下一段计时
-  ProgressStartNextSection: function() {
+  ProgressStartNextSection:function(){
     console.log(timer.data.curProgress);
   },
 

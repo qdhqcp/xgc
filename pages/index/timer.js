@@ -14,7 +14,7 @@ export default{
       that.data.ctx2.arc(w, h, w - 10, -0.5 * Math.PI, num); //每个间隔绘制的弧度
       that.data.ctx2.setStrokeStyle("#ff5e7b");
       that.data.ctx2.setLineWidth("3");
-      that.data.ctx2.setLineCap("butt");
+      that.data.ctx2.setLineCap("round");
       that.data.ctx2.stroke();
       that.data.ctx2.beginPath();
       // that.data.ctx2.setFontSize(10); //注意不要加引号

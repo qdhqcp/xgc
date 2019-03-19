@@ -103,7 +103,7 @@ Page({
   
   //开启下一段计时
   ProgressStartNextSection:function(){
-
+    
   },
 
   //点击文章进入详情

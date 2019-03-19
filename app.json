@@ -4,7 +4,8 @@
     "pages/welcome/welcome",
     "pages/logs/logs",
     "pages/login/login",
-    "pages/detail/detail"
+    "pages/detail/detail",
+    "pages/duanzidetail/duanzidetail"
   ],
   "window": {
     "backgroundTextStyle": "light",

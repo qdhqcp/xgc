@@ -5,7 +5,10 @@
     "pages/logs/logs",
     "pages/login/login",
     "pages/detail/detail",
-    "pages/duanzidetail/duanzidetail"
+    "pages/duanzidetail/duanzidetail",
+    "pages/picdetail/picdetail",
+    "pages/tuwendetail/tuwendetail",
+    "pages/videodetail/videodetail"
   ],
   "window": {
     "backgroundTextStyle": "light",

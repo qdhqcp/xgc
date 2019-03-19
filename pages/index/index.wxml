@@ -20,7 +20,7 @@
   <block wx:for="{{CurListData.items}}" wx:for-item="item">
 
     <!--视频类-->
-    <view class='art-item art-video' bindtap="GoArtDetail" wx:if="{{item.atype=='1'||item.atype=='3'}}">
+    <view class='art-item art-video' bindtap="GoArtDetail" data-index='{{index}}' wx:if="{{item.atype=='1'||item.atype=='3'}}">
       <template is="art-top" data="{{mark:item.mark}}" />
       <view class='art-item-con'>
         <text class='art-item-con-title' wx:if="{{item.title&&item.title.length>0}}">{{item.title}}</text>
@@ -33,7 +33,7 @@
     </view>
 
     <!--图片类-->
-    <view class='art-item art-image' bindtap="GoArtDetail" wx:if="{{item.atype=='2'||item.atype=='4'||item.atype=='5'}}">
+    <view class='art-item art-image' bindtap="GoArtDetail" data-index='{{index}}' wx:if="{{item.atype=='2'||item.atype=='4'||item.atype=='5'}}">
       <template is="art-top" data="{{mark:item.mark}}" />
       <view class='art-item-con'>
         <text class='art-item-con-title' wx:if="{{item.title&&item.title.length>0}}">{{item.title}}</text>
@@ -54,7 +54,7 @@
     </view>
 
     <!--段子类-->
-    <view class='art-item art-text' bindtap="GoDuanZiDetail" data-index='{{index}}' wx:if="{{item.atype=='0'}}">
+    <view class='art-item art-text' bindtap="GoArtDetail" data-index='{{index}}' wx:if="{{item.atype=='0'}}">
       <template is="art-top" data="{{mark:item.mark}}" />
       <view class='art-item-con'>
         <text class='art-item-con-tag' wx:if="{{item.tag&&item.tag.length>0}}">{{item.tag}} </text>

@@ -189,3 +189,14 @@ page{
 .art-item-pls-text{
   color: #323232;
 }
+
+
+.timer{
+  width: 100rpx; 
+  height: 100rpx; 
+  background:#ffffff; 
+  position:fixed;
+  bottom:30rpx; 
+  right:30rpx;
+  border-radius:50rpx;
+}

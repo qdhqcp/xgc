@@ -65,6 +65,8 @@
 
   </block>
 
-
-
 </scroll-view>
+
+
+<!--倒计时-->
+<canvas class="timer" canvas-id="timerCanvas" id="timerCanvas"></canvas>

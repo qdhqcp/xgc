@@ -1,9 +1,14 @@
 //index.js
+
+import timer from 'timer.js'
+
 //获取应用实例
 const app = getApp()
 
 Page({
+  ...timer.options,
   data: {
+    ...timer.data,
     userInfo: {},
     isLogin: false,
     CurListData: {
@@ -18,6 +23,10 @@ Page({
     });
 
     this.LoadNextPage();
+
+    this.draw('timerCanvas', 30, 1000,function(_pro){
+      console.log(_pro);
+    });
 
   },
   //事件处理函数

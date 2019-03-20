@@ -15,5 +15,11 @@
     "navigationBarBackgroundColor": "#FFEC74",
     "navigationBarTitleText": "笑哥吹",
     "navigationBarTextStyle": "black"
+  },
+  "plugins": {
+    "tencentvideo": {
+      "version": "1.2.5",
+      "provider": "wxa75efa648b60994b"
+    }
   }
 }

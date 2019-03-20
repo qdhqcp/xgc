@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    vid: 'f142631tnzo',
+    vsrc: 'http://txmov2.a.yximgs.com/upic/2019/01/13/15/BMjAxOTAxMTMxNTQ3MjFfNDE3MjI4NTFfOTkwNjQzMDMyMF8xXzM=_b_B200dad3c297041554560c3378b45ba6a.mp4?tag=1-1547366269-p-1-yophu72cb3-910bb46a9b1256a6'
   },
 
   /**

@@ -178,4 +178,11 @@ Page({
 
   },
 
+
+  GoTestDetail: function(){
+    wx.navigateTo({
+      url: '../videodetail/videodetail'
+    })
+  }
+
 })

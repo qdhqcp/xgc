@@ -4,8 +4,8 @@
 
 <!--顶部分类导航-->
 <view class='nav-menu'>
-  <image class="nav-user-head" wx:if="{{isLogin && userInfo.avatarUrl}}" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-  <image class="nav-user-head" wx:else src="../imgs/default-head.png" mode="cover"></image>
+  <image class="nav-user-head" wx:if="{{isLogin && userInfo.avatarUrl}}" src="{{userInfo.avatarUrl}}" mode="cover" ></image>
+  <image class="nav-user-head" wx:else src="../imgs/default-head.png" mode="cover" bindtap="GoTestDetail"></image>
   <text class='nav-menu-item' bindtap="SelectMenu" data-type='tuijian'>推荐</text>
   <text class='nav-menu-item' bindtap="SelectMenu" data-type='xiaoge'>笑哥</text>
   <text class='nav-menu-item' bindtap="SelectMenu" data-type='xiaoyi'>小姨</text>

@@ -1,2 +1,9 @@
 <!--pages/videodetail/videodetail.wxml-->
-<text>pages/videodetail/videodetail.wxml</text>
+
+  <txv-video vid="{{vid}}" wx:if="{{vid}}" playerid="{{vid}}" autoplay="{{false}}" isHiddenStop="{{true}}" width="70%" height="auto"></txv-video>
+  
+  <video id="myVideo" src="{{vsrc}}" controls autoplay="{{false}}"></video>
+  <video id="myVideo" src="{{vsrc}}" controls autoplay="{{false}}"></video>
+  <video id="myVideo" src="{{vsrc}}" controls autoplay="{{false}}"></video>
+  <video id="myVideo" src="{{vsrc}}" controls autoplay="{{false}}"></video>
+

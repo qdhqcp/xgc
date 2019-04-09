@@ -1,0 +1,32 @@
+<!--文章详情的输入框-->
+<template name="plinput">
+  <!--底部评论框-->
+  <view class='container-pl-input'>
+
+    <!--评论输入框 -->
+    <view class='pl-input'>
+      <input cursor-spacing='0' class='input' />
+    </view>
+    <!--分享按钮-->
+    <image class='img-share' src='../imgs/content_btn_sharel.png' />
+    <!--收藏按钮-->
+    <image bindtap='onCollectionClick' class='img-shoucang' src='../imgs/content_btn_collected.png' />
+
+
+    <!--底部的表情-->
+    <block wx:if="{{isshowenmoji}}">
+      <view class='container-enmoji'>
+        <swiper current='curindex' class='swiper-box' indicator-dots='true' indicator-color='blue' indicator-active-color='yellow'>
+          <block wx:for="{{enmojipages}}" wx:for-item="page">
+            <swiper-item>
+              <block wx:for="{{enmojis}}" wx:for-index="idx">
+                <image class='jref' src='http://pic15.nipic.com/20110628/1369025_192645024000_2.jpg' mode='aspectFill' wx:if="{{idx>=page*21 && idx<(page+1)*21}}"></image>
+              </block>
+            </swiper-item>
+          </block>
+        </swiper>
+
+      </view>
+    </block>
+  </view>
+</template>

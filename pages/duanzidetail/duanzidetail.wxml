@@ -1,2 +1,15 @@
-<!--pages/duanzidetail/duanzidetail.wxml-->
-<text>pages/duanzidetail/duanzidetail.wxml</text>
+<import src="../template/artdetailtemplate.wxml" />
+<import src="../template/artdetailinput.wxml" />
+<!--pages/picdetail/picdetail.wxml-->
+<scroll-view class='container-scroll' scroll-y='true' lower-threshold="100" bindscrolltolower="LoadNextPage" bindscroll="ScrollViewDidScroll">
+
+  <view class='container-zhaiyao'>
+    <text class='text-zhaiyao'>{{artdata.zhaiyao}}</text>
+  </view>
+  <!--下面的标签，评论和输入-->
+  <template is="art-gongyong" data="{{artdetaildata:artdata,pldetaildata:pldata}}" />
+
+</scroll-view>
+
+<!--输入框-->
+<template is="plinput" />

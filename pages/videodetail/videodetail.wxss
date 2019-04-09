@@ -1,1 +1,36 @@
 /* pages/videodetail/videodetail.wxss */
+@import "../template/artdetailtemplate.wxss";
+
+/*视频区域容器*/
+
+.container-video {
+  background: red;
+  width: 100%;
+  position: fixed;
+  height: 400rpx;
+  top: 0;
+  left: 0
+}
+
+/*scrollview样式*/
+
+.container-scroll {
+  width: 100%;
+  height: 100%;
+  margin-top: 400rpx;
+}
+
+/*标题容器*/
+
+.container-title {
+  margin-top: 50rpx;
+  margin-left: 26rpx;
+  margin-right: 26rpx;
+}
+
+/*标题文字*/
+
+.text-title {
+  color: #343434;
+  font-size: 36rpx
+}

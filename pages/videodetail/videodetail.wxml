@@ -1,9 +1,21 @@
 <!--pages/videodetail/videodetail.wxml-->
+<import src="../template/artdetailtemplate.wxml" />
+<import src="../template/artdetailinput.wxml" />
 
-  <txv-video vid="{{vid}}" wx:if="{{vid}}" playerid="{{vid}}" autoplay="{{false}}" isHiddenStop="{{true}}" width="70%" height="auto"></txv-video>
-  
-  <video id="myVideo" src="{{vsrc}}" controls autoplay="{{false}}"></video>
-  <video id="myVideo" src="{{vsrc}}" controls autoplay="{{false}}"></video>
-  <video id="myVideo" src="{{vsrc}}" controls autoplay="{{false}}"></video>
-  <video id="myVideo" src="{{vsrc}}" controls autoplay="{{false}}"></video>
+<scroll-view scroll-y class='container-scroll'>
 
+  <!--标题-->
+  <view class='container-title'>
+    <text class='text-title'>{{artdata.title}}</text>
+  </view>
+
+  <!--下面的标签，评论和输入-->
+  <template is="art-gongyong" data="{{artdetaildata:artdata,pldetaildata:pldata}}" />
+
+</scroll-view>
+
+<!--输入框-->
+<template is="plinput" />
+
+<!--视频区域-->
+<view class='container-video'></view>

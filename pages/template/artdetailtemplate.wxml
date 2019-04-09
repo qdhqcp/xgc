@@ -1,0 +1,61 @@
+<template name="art-gongyong">
+
+  <!--artdetaildata：文章数据  pldetaildata：评论数据-->
+  <!--下面的标签，评论和输入-->
+  <view class='container-tags' wx:if="{{artdetaildata.tags&&artdetaildata.tags.length>0}}">
+    <block wx:for="{{artdetaildata.tags}}" wx:for-item="item" wx:for-index="idx">
+      <text class='text-tags-style' style='color:#51adf5' wx:if="{{idx==0}}">{{item.TAG}}</text>
+      <text class='text-tags-style' style='color:#9e9e9e' wx:else>{{item.TAG}}</text>
+    </block>
+  </view>
+
+  <!--点赞-->
+  <view class='container-like'>
+    <image class='img-like' src="../imgs/detail_btn_like.png" wx:if="{{artdetaildata.zanstatus!=1}}" />
+    <image class='img-like' src="../imgs/detail_btn_liked.png" wx:else/>
+    <view class='view-like-count'>{{artdetaildata.zancnt}}</view>
+  </view>
+
+  <!--没有评论时候的底部空白高度-->
+  <view style='height:200rpx' wx:if="{{artdetaildata.plcnt&&artdetaildata.plcnt<=0}}"></view>
+
+  <!--有评论的时候的评论展示-->
+  <view class='container-comments-count' wx:else>
+    <!--分割线-->
+    <view class='fengexian' />
+    <!--评论数-->
+    <view class='container-plcounts'>
+      <text class='plcounts'>评论 </text>
+      <text class='plcounts'>{{artdetaildata.plcnt}}</text>
+    </view>
+
+    <!--分割线-->
+    <view class='plfengexian' />
+
+    <!--用户评论-->
+    <block wx:for="{{pldetaildata.items}}" wx:for-item="item" wx:for-index="idx">
+      <view class='container-pl'>
+        <!--头像-->
+        <image class='pl-head' src='{{item.HEADURL}}' />
+        <!--昵称，评论内容-->
+        <view class='container-pl-nickname-content'>
+          <text class='nickname'>{{item.NICKNAME}}\n</text>
+          <text class='plcontent'>{{item.CONTENT}}</text>
+        </view>
+        <!--评论点赞-->
+        <view class='container-pldianzan'>
+          <text class='text-plzan' wx:if="{{item.ZANCNT>0}}">{{item.ZANCNT}}</text>
+          <image class='img-plzan' src='../imgs/content_btn_like.png'></image>
+        </view>
+        <!--分隔线-->
+        <view class='bottom-fengexian' wx:if="{{idx+1!=pldata.items.length}}"></view>
+      </view>
+    </block>
+  </view>
+
+  <!--输入框高度-->
+  <view  style='height:{{zhanweiheight}}rpx'>
+  </view>
+
+
+</template>

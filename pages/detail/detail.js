@@ -10,6 +10,9 @@ Page({
   data: {
     dkheight: 300,
     dkcontent: "你好<br/>你好<br/>你好<br/>你好<br/>你好<br/>nihao, <br/><br/><br/><br/><br/><br/><br/>这个是测试<br/><br/>你同意了吗<br/><br/><br/>hehe<b>n你好啊，我加粗了kk</b ><img  src=\"http://xgc-img.xiaogechui.cn/20181029/1814/636764336619047496.png\" />",
+    vid: 'f142631tnzo',
+    vsrc: 'http://txmov2.a.yximgs.com/upic/2019/01/13/15/BMjAxOTAxMTMxNTQ3MjFfNDE3MjI4NTFfOTkwNjQzMDMyMF8xXzM=_b_B200dad3c297041554560c3378b45ba6a.mp4?tag=1-1547366269-p-1-yophu72cb3-910bb46a9b1256a6'
+
   },
 
   /**

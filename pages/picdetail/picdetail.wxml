@@ -1,2 +1,22 @@
+<import src="../template/artdetailtemplate.wxml" />
+<import src="../template/artdetailinput.wxml" />
 <!--pages/picdetail/picdetail.wxml-->
-<text>pages/picdetail/picdetail.wxml</text>
+<scroll-view class='container-scroll' scroll-y='true' lower-threshold="100" bindscrolltolower="LoadNextPage" bindscroll="ScrollViewDidScroll">
+  <!--标题-->
+  <view class='container-title' wx:if="{{artdata.title}}">
+    <text class='text-title'>{{artdata.title}}</text>
+  </view>
+
+  <!--图片-->
+  <view class='container-pic'>
+    <image class='{{imageStyle}}' src='{{artdata.imgurl}}' mode='widthFix' />
+    <image class='play-gif-style' src="../imgs/content_btn_playgif.png" style='display:{{showPlayGif}}' wx:if="{{artdata.atype=='4'}}" />
+  </view>
+
+  <!--下面的标签，评论和输入-->
+  <template is="art-gongyong" data="{{artdetaildata:artdata,pldetaildata:pldata,zhanweiheight:zhanweiheight}}" />
+
+</scroll-view>
+
+<!--输入框-->
+<template is="plinput" data="{{isshowenmoji:isshowenmoji,enmojis:enmojis,enmojipages:enmojipages}}" />

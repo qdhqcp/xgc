@@ -151,7 +151,7 @@ Page({
 
 
   //点击文章进入详情
-  GoArtDetail: function(event) {
+  GoArtDetail: function (event) {
 
     var index = event.currentTarget.dataset.index;
     var itemdata = this.data.CurListData.items[index];
@@ -159,7 +159,7 @@ Page({
     var url;
     if ('0' == atype) {
       //段子
-      url = '../duanzidetail/duanzidetail';
+      url = '../duanzidetail/duanzidetail?zhaiyao=' + itemdata.zhaiyao;
     } else if ('5' == atype) {
       //图文
       url = '../tuwendetail/tuwendetail'
@@ -177,6 +177,9 @@ Page({
     }
 
   },
+
+
+
 
 
   GoTestDetail: function(){
